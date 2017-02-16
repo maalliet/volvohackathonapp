@@ -6,7 +6,10 @@
 		xmlns="http://java.sun.com/xml/ns/javaee">
 
 	<display-name>VolvoHackathonApp</display-name>
-
+<resource-ref>
+    <res-ref-name>jdbc/DefaultDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+</resource-ref>
 	<!-- ============================================================== -->
 	<!-- UI5 resource servlet used to handle application resources      -->
 	<!-- ============================================================== -->
@@ -89,6 +92,16 @@
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-
+	
+	<servlet>
+    <description></description>
+    <display-name>OverviewServlet</display-name>
+    <servlet-name>OverviewServlet</servlet-name>
+    <servlet-class>com.deloitte.classes.OverviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OverviewServlet</servlet-name>
+    <url-pattern>/java/</url-pattern>
+  </servlet-mapping>
 
 </web-app>
