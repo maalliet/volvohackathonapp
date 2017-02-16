@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+/*General styles for components */
+
+.sapMShellBG {
+	background-color:#ebebeb;
+}
+
+.marginTop15 {
+	margin-top: 15px;
+}
+
+#map {
+	height: 100%;
+	width: 100%;
+}
