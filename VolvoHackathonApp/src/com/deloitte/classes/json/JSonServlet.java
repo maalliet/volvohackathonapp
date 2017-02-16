@@ -1,4 +1,4 @@
-package com.deloitte.classes;
+package com.deloitte.classes.json;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -13,15 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.deloitte.jdbc.*;
-import com.deloitte.soap.*;
+import com.deloitte.classes.datamodel.Route;
+import com.deloitte.classes.datamodel.Truck;
+import com.deloitte.jdbc.Database;
+import com.deloitte.jdbc.Row;
+import com.deloitte.soap.SoapReader;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sap.security.core.server.csi.IXSSEncoder;
 import com.sap.security.core.server.csi.XSSEncoder;
 
 /**
  * Servlet implementation class OverviewServlet
  */
-public class OverviewServlet extends HttpServlet {
+public class JSonServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private Database db;
@@ -44,7 +49,7 @@ public class OverviewServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OverviewServlet() {
+    public JSonServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -53,16 +58,18 @@ public class OverviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println("<h1>EMAIL TABLE OVERVIEW!</h1>");
-		try {
-			sr.RunSoap();
-			FillTable(response);
-			//appendAddForm(response);
-		} catch (Exception e) {
-			response.getWriter().println(
-					"Persistence operation failed with reason: "
-							+ e.getMessage());
-		}
+		Truck truck = new Truck();
+		truck.id = "aa";
+		truck.name = "name";
+		truck.route = new Route();
+		truck.route.points = new ArrayList<String>();
+		truck.route.points.add("Brussels");
+		truck.route.points.add("Ghent");
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        System.out.println(gson.toJson(truck));
+		response.getWriter().println(gson.toJson(truck));
+		
 	}
 
 	/**
