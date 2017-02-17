@@ -2,12 +2,24 @@
 
 /*General styles for components */
 
-.sapMShellBG {
-	background-color:#ebebeb;
+/*Remove branding bar*/
+.sapMShellBrandingBar {
+    height: 0px;
+}
+
+.sapMPageHeader::before {
+    border-top-width: 0rem;
 }
 
 .marginTop15 {
 	margin-top: 15px;
+}
+
+.dashboardTileMargin {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 #map {
