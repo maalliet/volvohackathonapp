@@ -78,7 +78,7 @@ public class FleetInformation extends HttpServlet {
 	
 	private void fleetData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		Fleet fleet = new Fleet();
-		for(int i = 0; i<10; i++){
+		for(int i = 0; i<1; i++){
 			Truck truck = new Truck();
 			fleet.trucks.add(truck);
 		}
