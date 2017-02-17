@@ -60,11 +60,7 @@ public class JSonServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Truck truck = new Truck();
 		truck.id = "aa";
-		truck.name = "name";
-		truck.route = new Route();
-		truck.route.points = new ArrayList<String>();
-		truck.route.points.add("Brussels");
-		truck.route.points.add("Ghent");
+
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         System.out.println(gson.toJson(truck));

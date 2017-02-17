@@ -105,13 +105,24 @@
     <servlet-name>JSONServlet</servlet-name>
     <servlet-class>com.deloitte.classes.json.JSonServlet</servlet-class>
   </servlet>
+    <servlet>
+    <description></description>
+    <display-name>FleetInformation</display-name>
+    <servlet-name>FleetInformation</servlet-name>
+    <servlet-class>com.deloitte.classes.json.FleetInformation</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>OverviewServlet</servlet-name>
-    <url-pattern>/java/soap/*</url-pattern>
+    <url-pattern>/java/soap/</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>JSONServlet</servlet-name>
-    <url-pattern>/java/json/*</url-pattern>
+    <url-pattern>/java/json/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>FleetInformation</servlet-name>
+    <url-pattern>/java/fleet/*</url-pattern>
   </servlet-mapping>
 
 </web-app>
