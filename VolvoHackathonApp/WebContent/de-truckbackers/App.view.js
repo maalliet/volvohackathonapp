@@ -17,40 +17,59 @@ sap.ui.jsview("de-truckbackers.App", {
  		return new sap.m.Page({
  			showHeader: false,
 			content: [
-				new sap.m.HBox({
-					justifyContent: "Center",
-					width: "100%",
+				new sap.m.VBox({
 					items: [
-						new sap.m.VBox({
-							width: "90%",
+						new sap.m.HBox({
+							justifyContent: "Center",
+							width: "100%",
 							items: [
-								new sap.m.Panel({
-									headerText: "Map",
-									width: "100%",
-									height: "600px",
-									expandable: true,
-									expanded: true,
+								new sap.ui.core.HTML({
+									content: '<div id="header"></div>'
+								})
+							]
+						}),
+						new sap.m.IconTabBar({
+							id: "appTabBar",
+							items: [
+								new sap.m.IconTabFilter({
+									text: "Fleet Overview",
 									content: [
-										new sap.ui.core.HTML({
-											content: '<div id="map"></div>'
+										new sap.m.VBox({
+											items: [
+												new sap.m.Panel({
+													headerText: "Map",
+													width: "100%",
+													height: "600px",
+													content: [
+														new sap.ui.core.HTML({
+															content: '<div id="map"></div>'
+														})
+													]
+												}),
+												new sap.m.Panel({
+													id: "dashboardPanel"
+												})
+											]
 										})
 									]
 								}),
-								new sap.m.Panel({
-									headerText: "Table",
-									width: "100%",
-									height: "600px",
-									expandable: true,
-									expanded: true,
-									content: [
-									]
+								new sap.m.IconTabFilter({
+									text: "Tab2",
+									content: []
+								}),
+								new sap.m.IconTabFilter({
+									text: "Tab3",
+									content: []
+								}),
+								new sap.m.IconTabFilter({
+									text: "Tab4",
+									content: []
 								})
 							]
 						})
 					]
 				})
 			]
-		});
+ 		})
 	}
-
 });
